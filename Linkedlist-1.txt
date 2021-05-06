@@ -1,0 +1,20 @@
+https://www.geeksforgeeks.org/reverse-a-linked-list/
+
+
+
+struct Node* reverseList(struct Node *head)
+    {
+        Node *f = head;
+        if(head->next == NULL) return head;
+        Node *s = head->next;
+        Node *temp;
+        f->next = NULL;
+        while(s){
+            temp = s->next;
+            s->next = f;
+            f = s;
+            if(temp == NULL) break;
+            s = temp;
+        }
+        return s;
+    }
